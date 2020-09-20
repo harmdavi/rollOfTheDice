@@ -3,7 +3,7 @@
 'RCET0265
 'Spring 2020
 'Roll of the Dice
-'
+'https://github.com/harmdavi/rollOfTheDice.git
 
 Option Strict On
 Option Explicit On
