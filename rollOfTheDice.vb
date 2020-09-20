@@ -1,0 +1,104 @@
+﻿
+'David Harmon
+'RCET0265
+'Spring 2020
+'Roll of the Dice
+'
+
+Option Strict On
+Option Explicit On
+Option Compare Text
+
+
+
+Module rollOfTheDice
+
+    Sub Main()
+        Dim diceArray(12) As Integer
+        Dim randomNumber As Integer
+        Dim value As Integer = 0
+        Dim intI As Integer
+        Dim iterations As Integer
+        Dim userInput As String
+
+
+        Do Until userInput = "q"
+
+            Randomize()
+
+            Console.WriteLine("This is a 1000 dice roll simulator. Press enter again to Re-Roll. Press q to exit.")
+
+            'For intI = 0 To 13
+
+            '    diceArray(intI) = 0
+            'Next
+
+
+            For i = 0 To 1000
+                randomNumber = CInt((12 - 2 + 1) * Rnd() + 2)
+
+                ' The way that the randomizer equastion works, there need to be code in there to make sure that everthing is rounded up. 
+                'This ensures that the random number always falls into working order. 
+
+                If diceArray(randomNumber - 2) < 2 Then
+                    i = 2
+                ElseIf (randomNumber - 2) > 13 Then
+                    i = 12
+                End If
+
+                'End If
+
+                diceArray(randomNumber - 2) += 1
+
+            Next
+
+            'This part of the code formats the code so that it is easy to understand by the user. 
+
+            For i = 0 To 10
+                Console.Write("--------")
+            Next
+            Console.WriteLine()
+
+            For i = 2 To 12
+                Console.Write($"{i} |{vbTab}")
+            Next
+            Console.WriteLine()
+
+            For i = 0 To 10
+                Console.Write("--------")
+            Next
+            Console.WriteLine()
+
+            For i = 0 To 10
+                'Console.Write(i)
+                Console.Write($"{diceArray(i)} |{vbTab}")
+            Next
+
+            userInput = Console.ReadLine()
+            If userInput = "q" Then
+                Exit Sub
+            Else
+            End If
+
+            Console.Clear()
+            For intI = 0 To 12
+                diceArray(intI) = 0
+            Next
+
+        Loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+    End Sub
+
+End Module
