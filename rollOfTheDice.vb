@@ -81,21 +81,12 @@ Module rollOfTheDice
             End If
 
             Console.Clear()
+            'This part clears the array to all 0's so that the ranomizer can load another 1000
             For intI = 0 To 12
                 diceArray(intI) = 0
             Next
 
         Loop
-
-
-
-
-
-
-
-
-
-
 
 
 
